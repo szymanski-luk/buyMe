@@ -21,9 +21,12 @@ use Illuminate\Support\Facades\Route;
 
 Auth::routes();
 
-Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('index');
+
 
 Route::get('/logout', [LogoutController::class, 'logout'])->name('logout');
+
+// MAIN PAGE
+Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('index');
 
 // CATEGORIES
 Route::get('/categories', [CategoryController::class, 'categoriesList'])->name('categories_list');
@@ -34,3 +37,4 @@ Route::get('/auctions/new', [AdvertController::class, 'newAdvert'])->name('new_a
 Route::post('/auctions/save', [AdvertController::class, 'saveAdvert'])->name('save_auction');
 Route::get('/auctions/my', [AdvertController::class, 'myAdverts'])->name('my_adverts');
 Route::get('/auctions/{id}', [AdvertController::class, 'details'])->name('advert_details');
+Route::get('/auctions/', [AdvertController::class, 'search'])->name('searching');

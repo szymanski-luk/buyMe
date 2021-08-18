@@ -47,7 +47,7 @@
                         <a href="{{ route('register') }}" class="btn btn-outline-danger" tabindex="-1" role="button" aria-disabled="true">{{ __('Register') }}</a>
 
                     @else
-                    <div class="btn-group">
+                        <div class="btn-group">
                       <button type="button" class="btn btn-danger dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
                         {{ Auth::user()->name }}
                       </button>
@@ -65,13 +65,8 @@
             </div>
         </div>
     </nav>
+    @yield('content')
 
-
-    <main class="py-4">
-        <div class="container">
-            @yield('content')
-        </div>
-    </main>
 
     <footer class="bg-light text-center text-lg-start">
         <!-- Copyright -->

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Middleware\Authenticate;
 use App\Models\Advert;
 use App\Models\Category;
+use http\Env\Response;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -17,14 +18,14 @@ class AdvertController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware('auth')->except('details');
     }
 
     protected function validator(array $data)
     {
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:40'],
-            'description' => ['required', 'string', 'max:900'],
+            'description' => ['required', 'string', 'max:3000'],
             'city' => ['required', 'string', 'min:3', 'max:80'],
             'price' => ['required', 'numeric', 'min:0'],
             'image' => ['required', 'file', 'mimes:png,jpg,jpeg']
@@ -85,5 +86,17 @@ class AdvertController extends Controller
     {
         $auction = Advert::where('id', '=', $id)->first();
         return view('auction.details', ['auction' => $auction]);
+    }
+
+    public function search(Request $request)
+    {
+        $searchTerm = $request->searchTerm;
+
+        $auctions = Advert::query()
+            ->where('title', 'LIKE', "%{$searchTerm}%")
+            ->orWhere('content', 'LIKE', "%{$searchTerm}%")
+            ->get();
+
+        return view('auction.searching', ['auctions' => $auctions, 'searchTerm' => $searchTerm]);
     }
 }

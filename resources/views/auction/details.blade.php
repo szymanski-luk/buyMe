@@ -1,7 +1,8 @@
 @extends('layouts.layout')
 
 @section('content')
-    <h1 id="h1-red">{{ $auction->title }}</h1> <p class="card-text"><small class="text-muted"><span class="disable-select">Auction id: #</span>{{ $auction->id }}</small></p>
+    <h1 id="h1-red">{{ $auction->title }}</h1>
+    <p class="card-text"><small class="text-muted"><span class="disable-select">Auction id: #</span>{{ $auction->id }}</small> </p>
     <hr>
 
     <div class="row">

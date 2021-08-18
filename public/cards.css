@@ -40,3 +40,30 @@ footer {
     -moz-user-select: none; /* Firefox */
     -ms-user-select: none; /* Internet Explorer/Edge */
 }
+
+#link:hover {
+    background-color: rgb(37, 42, 47);
+    color: rgb(220, 53, 69);
+}
+
+#link {
+    transition: color .6s;
+    transition: background-color .4s;
+}
+
+#m_jumbotron{
+    background-color: rgb(223, 223, 223);
+    -webkit-box-shadow: 0px 9px 25px -6px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 9px 25px -6px rgba(0,0,0,0.75);
+    box-shadow: 0px 9px 25px -6px rgba(0,0,0,0.75);
+    background-size: 120vw;
+
+}
+
+#h1-red-shadow{
+    text-shadow: 3px 2px 6px #FFFFFF;
+    color: rgb(220, 53, 69);
+    text-align: center;
+    font-size: 40pt;
+    font-family: 'Merienda One', cursive;
+}
