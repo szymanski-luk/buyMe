@@ -11,3 +11,13 @@
 #h1-red {
     color: rgb(220, 53, 69);
 }
+
+footer {
+    position:fixed;
+    bottom:0;
+    width: 100%;
+}
+
+#h5-price {
+    margin-top: -18px;
+}

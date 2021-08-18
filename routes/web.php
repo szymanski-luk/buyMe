@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdvertController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\LogoutController;
 use Illuminate\Support\Facades\Auth;
@@ -26,6 +27,8 @@ Route::get('/logout', [LogoutController::class, 'logout'])->name('logout');
 
 Route::get('/categories', [CategoryController::class, 'categoriesList'])->name('categories_list');
 
-Route::get('/auction/new', [\App\Http\Controllers\AdvertController::class, 'newAdvert'])->name('new_auction');
+Route::get('/auctions/new', [AdvertController::class, 'newAdvert'])->name('new_auction');
 
-Route::post('/auction/save', [\App\Http\Controllers\AdvertController::class, 'saveAdvert'])->name('save_auction');
+Route::post('/auctions/save', [AdvertController::class, 'saveAdvert'])->name('save_auction');
+
+Route::get('/auctions/my', [AdvertController::class, 'myAdverts'])->name('my_adverts');

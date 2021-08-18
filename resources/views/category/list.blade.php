@@ -1,6 +1,8 @@
 @extends('layouts.layout')
 
 @section('content')
+    <h1 id="h1-red">Categories</h1>
+    <hr>
     @foreach($categories as $category)
 
     <div class="container-fluid">

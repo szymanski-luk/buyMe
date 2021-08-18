@@ -57,7 +57,7 @@ class AdvertController extends Controller
         if($request->hasFile('image')) {
             $image = $request->file('image');
             $filename = time() . '.' . $image->getClientOriginalExtension();
-            Image::make($image)->resize(300, 300)->save(public_path('/images/' . $filename));
+            Image::make($image)->save(public_path('/images/' . $filename));
 
             $advert = new Advert();
             $advert->title = $request->name;
@@ -69,9 +69,15 @@ class AdvertController extends Controller
             $advert->user_id = Auth::user()->id;
 
             $advert->save();
-
         }
 
+        return redirect(route('my_adverts'));
+    }
 
+    public function myAdverts()
+    {
+        $auctions = Advert::all();
+
+        return view('auction.own', ['auctions'=>$auctions]);
     }
 }
