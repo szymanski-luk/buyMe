@@ -6,7 +6,7 @@
     @foreach($categories as $category)
 
     <div class="container-fluid">
-        <a href="#" style="text-decoration-line: none;" >
+        <a href="{{ route('categories_details', ['id' => $category->id]) }}" style="text-decoration-line: none;" >
         <div class="card mb-3" id="card-category" style="max-width: 1000px; margin-left: auto; margin-right: auto">
             <div class="row g-0">
                 <div class="col-md-4">

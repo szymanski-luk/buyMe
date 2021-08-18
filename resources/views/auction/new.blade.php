@@ -52,7 +52,7 @@
 
         <div class="input-group mb-3">
             <span class="input-group-text">Description</span>
-            <textarea class="form-control @error('description') is-invalid @enderror" name="description" aria-label="Description"></textarea>
+            <textarea class="form-control @error('description') is-invalid @enderror" name="description" maxlength="860" aria-label="Description"></textarea>
             @error('description')
             <span class="invalid-feedback" role="alert">
                      <strong>{{ $message }}</strong>

@@ -8,6 +8,8 @@
     transition: background-color .4s;
 }
 
+
+
 #h1-red {
     color: rgb(220, 53, 69);
 }
@@ -20,4 +22,21 @@ footer {
 
 #h5-price {
     margin-top: -18px;
+    color: rgb(220, 53, 69);
+}
+
+#h5-tel {
+    color: rgb(220, 53, 69);
+}
+
+#phone-call, #h5-tel {
+    display: inline;
+}
+
+.disable-select{
+    user-select: none; /* supported by Chrome and Opera */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
 }

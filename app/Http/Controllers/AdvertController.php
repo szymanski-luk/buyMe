@@ -76,8 +76,14 @@ class AdvertController extends Controller
 
     public function myAdverts()
     {
-        $auctions = Advert::all();
+        $auctions = Advert::all()->where('user_id', '=', Auth::user()->id);
 
         return view('auction.own', ['auctions'=>$auctions]);
+    }
+
+    public function details($id)
+    {
+        $auction = Advert::where('id', '=', $id)->first();
+        return view('auction.details', ['auction' => $auction]);
     }
 }

@@ -1,8 +1,7 @@
 @extends('layouts.layout')
 
 @section('content')
-
-    <h1 id="h1-red">My auctions</h1>
+    <h1 id="h1-red">{{ $category->name }}</h1>
     <hr>
     @foreach($auctions as $auction)
     <div class="container-fluid">
