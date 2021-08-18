@@ -84,8 +84,9 @@ class AdvertController extends Controller
 
     public function details($id)
     {
+        $categories = Category::all();
         $auction = Advert::where('id', '=', $id)->first();
-        return view('auction.details', ['auction' => $auction]);
+        return view('auction.details', ['auction' => $auction, 'categories' => $categories]);
     }
 
     public function search(Request $request)
@@ -98,5 +99,49 @@ class AdvertController extends Controller
             ->get();
 
         return view('auction.searching', ['auctions' => $auctions, 'searchTerm' => $searchTerm]);
+    }
+
+    public function edit(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'name' => ['required', 'string', 'max:40'],
+            'description' => ['required', 'string', 'max:900'],
+            'city' => ['required', 'string', 'min:3', 'max:80'],
+            'price' => ['required', 'numeric', 'min:0'],
+            'category' => ['required']
+        ]);
+
+        if ($validator->fails()) {
+            return redirect()
+                ->back()
+                ->withErrors($validator)
+                ->withInput();
+        }
+
+        $advert = Advert::query()
+            ->where('id', '=', $request->id)
+            ->first();
+
+        $advert->title = $request->name;
+        $advert->category_id = $request->category;
+        $advert->content = $request->description;
+        $advert->city = $request->city;
+        $advert->price = $request->price;
+        $advert->user_id = Auth::user()->id;
+
+        $advert->save();
+
+        return redirect()->route('advert_details', ['id' => $request->id]);
+    }
+
+    public function delete(Request $request)
+    {
+        $advertToDelete = Advert::query()
+                                ->where('id', '=', $request->id)
+                                ->first();
+
+        $advertToDelete->delete();
+
+        return redirect()->route('my_adverts');
     }
 }

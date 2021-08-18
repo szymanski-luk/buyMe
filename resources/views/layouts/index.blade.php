@@ -70,8 +70,12 @@
 
     <footer class="bg-light text-center text-lg-start">
         <!-- Copyright -->
-        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+        <div class="text-center text-white p-3 bg-dark">
             @yield('footer')
+            © 2020 Copyright: Łukasz Szymański - <a id="a-red" target="_blank" title="GitHub (Łukasz Szymański)" href="https://github.com/szymanski-luk">GitHub </a> - <a id="a-red" target="_blank" title="This project on GH" href="https://github.com/szymanski-luk/buyMe"> this project</a>
+            <br>
+            <div>Icons made by <a id="a-red" href="https://www.freepik.com" title="Freepik">Freepik</a> from <a id="a-red" href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+
         </div>
         <!-- Copyright -->
     </footer>

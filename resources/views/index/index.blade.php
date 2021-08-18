@@ -58,6 +58,3 @@
 
 @endsection
 
-@section('footer')
-    © 2020 Copyright: Łukasz Szymański - <a class="text-dark" target="_blank" href="https://github.com/szymanski-luk">GitHub</a>
-@endsection

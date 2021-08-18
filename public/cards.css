@@ -67,3 +67,11 @@ footer {
     font-size: 40pt;
     font-family: 'Merienda One', cursive;
 }
+
+#a-red{
+    color: rgb(220, 53, 69);
+}
+
+#a-red:hover{
+    color: rgb(229, 37, 54);
+}

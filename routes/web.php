@@ -38,3 +38,5 @@ Route::post('/auctions/save', [AdvertController::class, 'saveAdvert'])->name('sa
 Route::get('/auctions/my', [AdvertController::class, 'myAdverts'])->name('my_adverts');
 Route::get('/auctions/{id}', [AdvertController::class, 'details'])->name('advert_details');
 Route::get('/auctions/', [AdvertController::class, 'search'])->name('searching');
+Route::post('/auctions/edit', [AdvertController::class, 'edit'])->name('edit_auction');
+Route::post('/auctions/delete', [AdvertController::class, 'delete'])->name('delete_auction');
