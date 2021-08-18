@@ -3,6 +3,11 @@
 @section('content')
     <h1 id="h1-red">Categories</h1>
     <hr>
+    @auth
+        @if(Auth::user()->type == 'admin')
+            <a href="" class="btn btn-outline-danger">New category</a>
+        @endif
+    @endauth
     @foreach($categories as $category)
 
     <div class="container-fluid">
@@ -23,5 +28,10 @@
         </a>
     </div>
     @endforeach
+    @auth
+        @if(Auth::user()->type == 'admin')
+            <a href="" class="btn btn-outline-danger">New category</a>
+        @endif
+    @endauth
 @endsection
 

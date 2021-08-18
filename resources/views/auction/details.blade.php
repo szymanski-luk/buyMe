@@ -8,7 +8,7 @@
     <hr>
 
     @auth
-        @if(Auth::user()->id == $auction->user_id)
+        @if(Auth::user()->id == $auction->user_id || Auth::user()->type == 'admin')
             <div class="modal" tabindex="-1" id="editingModal">
                 <div class="modal-dialog modal-lg">
                     <div class="modal-content">
@@ -116,7 +116,7 @@
                     <p class="card-text">{{ $auction->content }}</p>
                     <p class="card-text"><small class="text-muted">Last updated {{ $auction->updated_at }}</small></p>
                     @auth
-                        @if(Auth::user()->id == $auction->user_id)
+                        @if(Auth::user()->id == $auction->user_id || Auth::user()->type == 'admin')
                             <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#editingModal">
                                 Edit
                             </button>

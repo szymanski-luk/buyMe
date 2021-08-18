@@ -52,7 +52,7 @@
 
         <div class="input-group mb-3">
             <span class="input-group-text">Description</span>
-            <textarea class="form-control @error('description') is-invalid @enderror" name="description" maxlength="2800" aria-label="Description"></textarea>
+            <textarea class="form-control @error('description') is-invalid @enderror" name="description" maxlength="2800" rows="10" aria-label="Description"></textarea>
             @error('description')
             <span class="invalid-feedback" role="alert">
                      <strong>{{ $message }}</strong>
@@ -72,7 +72,7 @@
             </select>
         </div>
 
-        <button type="submit" class="btn btn-danger">{{ __('Save') }}</button>
+        <button style="margin-bottom: 80px;" type="submit" class="btn btn-danger">{{ __('Save') }}</button>
 
 
     </form>

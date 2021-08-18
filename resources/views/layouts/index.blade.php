@@ -67,6 +67,7 @@
     </nav>
     @yield('content')
 
+    <span style="margin-bottom: 80px"></span>
 
     <footer class="bg-light text-center text-lg-start">
         <!-- Copyright -->

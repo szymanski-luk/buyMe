@@ -21,4 +21,5 @@ class CategoryController extends Controller
 
         return view('category.details', ['auctions' => $auctions, 'category' => $category]);
     }
+
 }

@@ -23,7 +23,7 @@
 <body>
 <div id="app">
 
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
         <div class="container">
             <a class="navbar-brand" href="{{ url('/') }}">
                 BuyME!
@@ -68,7 +68,7 @@
 
 
     <main class="py-4">
-        <div class="container">
+        <div class="container" style="margin-bottom: 80px">
             @yield('content')
         </div>
     </main>

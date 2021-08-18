@@ -41,7 +41,7 @@ class AdvertController extends Controller
     public function saveAdvert(Request $request) {
         $validator = Validator::make($request->all(), [
             'name' => ['required', 'string', 'max:40'],
-            'description' => ['required', 'string', 'max:900'],
+            'description' => ['required', 'string', 'max:3000'],
             'city' => ['required', 'string', 'min:3', 'max:80'],
             'price' => ['required', 'numeric', 'min:0'],
             'image' => ['required', 'mimes:png,jpg,jpeg'],
@@ -105,7 +105,7 @@ class AdvertController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'name' => ['required', 'string', 'max:40'],
-            'description' => ['required', 'string', 'max:900'],
+            'description' => ['required', 'string', 'max:3000'],
             'city' => ['required', 'string', 'min:3', 'max:80'],
             'price' => ['required', 'numeric', 'min:0'],
             'category' => ['required']
