@@ -18,7 +18,7 @@ class AdvertController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth')->except('details');
+        $this->middleware('auth')->except(['details', 'search']);
     }
 
     protected function validator(array $data)
