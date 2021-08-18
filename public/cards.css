@@ -1,0 +1,13 @@
+#card-category:hover {
+    background-color: rgba(220, 53, 69, 0.2);
+    color: rgb(243, 45, 64);
+}
+
+#card-category {
+    color: rgb(220, 53, 69);
+    transition: background-color .4s;
+}
+
+#h1-red {
+    color: rgb(220, 53, 69);
+}

@@ -17,7 +17,7 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
     <!-- Styles -->
-
+    <link href="{{ asset('cards.css') }}" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
 </head>
 <body>
@@ -33,28 +33,26 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarText">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    @guest
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                        <a class="nav-link" href="{{ route('categories_list') }}">{{ __('Categories') }}</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                    </li>
-                    @else
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Jakiś link</a>
-                    </li>
+
+
 
                 </ul>
 
                 <span class="navbar-text">
+                    @guest
+                        <a href="{{ route('login') }}" class="btn btn-outline-danger" tabindex="-1" role="button" aria-disabled="true">{{ __('Login') }}</a>
+                        <a href="{{ route('register') }}" class="btn btn-outline-danger" tabindex="-1" role="button" aria-disabled="true">{{ __('Register') }}</a>
 
+                    @else
                     <div class="btn-group">
                       <button type="button" class="btn btn-danger dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
                         {{ Auth::user()->name }}
                       </button>
                       <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">{{ __('New auction') }}</a></li>
+                        <li><a class="dropdown-item" href="{{ route('new_auction') }}">{{ __('New auction') }}</a></li>
                         <li><a class="dropdown-item" href="#">Another action</a></li>
                         <li><a class="dropdown-item" href="#">Something else here</a></li>
                         <li><hr class="dropdown-divider"></li>
@@ -70,8 +68,18 @@
 
 
     <main class="py-4">
-        @yield('content')
+        <div class="container">
+            @yield('content')
+        </div>
     </main>
+
+    <footer class="bg-light text-center text-lg-start">
+        <!-- Copyright -->
+        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+            @yield('footer')
+        </div>
+        <!-- Copyright -->
+    </footer>
 </div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
 </body>
