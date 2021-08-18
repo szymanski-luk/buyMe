@@ -4,7 +4,7 @@
     <h1 id="h1-red" >New auction</h1>
     <hr>
     <div class="container" style="max-width: 1000px">
-    <form method="POST" action="">
+    <form method="POST" action="{{ route('save_auction') }}" enctype="multipart/form-data">
         @csrf
         <div class="form-floating mb-3">
             <input type="text" class="form-control @error('name') is-invalid @enderror" placeholder="Item name" aria-label="Username" id="name" name="name" aria-describedby="basic-addon1">
@@ -52,8 +52,8 @@
 
         <div class="input-group mb-3">
             <span class="input-group-text">Description</span>
-            <textarea class="form-control @error('content') is-invalid @enderror" name="content" aria-label="Description"></textarea>
-            @error('content')
+            <textarea class="form-control @error('description') is-invalid @enderror" name="description" aria-label="Description"></textarea>
+            @error('description')
             <span class="invalid-feedback" role="alert">
                      <strong>{{ $message }}</strong>
                 </span>
@@ -61,7 +61,7 @@
         </div>
 
         <div class="input-group mb-3">
-            <select class="form-select" aria-label="">
+            <select class="form-select" name="category">
                 @foreach($categories as $category)
                     @if($loop->index == 0)
                     <option value="{{ $category->id }}" selected>{{ $category->name }}</option>
