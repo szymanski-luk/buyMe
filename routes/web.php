@@ -31,6 +31,8 @@ Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('in
 // CATEGORIES
 Route::get('/categories', [CategoryController::class, 'categoriesList'])->name('categories_list');
 Route::get('/categories/{id}', [CategoryController::class, 'details'])->name('categories_details');
+Route::post('/categories/new', [CategoryController::class, 'saveCategory'])->name('new_category');
+Route::post('/categories/edit', [CategoryController::class, 'editCategory'])->name('edit_category');
 
 // AUCTIONS
 Route::get('/auctions/new', [AdvertController::class, 'newAdvert'])->name('new_auction');
