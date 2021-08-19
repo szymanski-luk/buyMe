@@ -38,7 +38,7 @@
 
             <img src="{{ asset('images/' . 'oops.png') }}" style="max-width: 300px; margin-left: auto; margin-right: auto" alt="Oops">
 
-            <h2 style="text-align: center">Oops! There is no advertisment in that category. Create one here: </h2>
+            <h2 style="text-align: center; margin-top: 15px">Oops! There is no advertisement in this category. Create one here: </h2>
 
             <div class="col-12 my-2" style="text-align: center">
                 <a href="{{ route('new_auction') }}" class="btn btn-outline-danger btn-lg " tabindex="-1" role="button" aria-disabled="true">New advertisment</a>

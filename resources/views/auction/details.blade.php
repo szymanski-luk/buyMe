@@ -113,7 +113,7 @@
             <div class="card mb-3">
                 <img src="{{ asset('images/' . $auction->img) }}" class="card-img-top" alt="...">
                 <div class="card-body">
-                    <p class="card-text">{{ $auction->content }}</p>
+                    <p class="card-text">{!! nl2br(e($auction->content)) !!}</p>
                     <p class="card-text"><small class="text-muted">Last updated {{ $auction->updated_at }}</small></p>
                     @auth
                         @if(Auth::user()->id == $auction->user_id || Auth::user()->type == 'admin')

@@ -1,7 +1,7 @@
 @extends('layouts.layout')
 
 @section('content')
-    <h1 id="h1-red" >New auction</h1>
+    <h1 id="h1-red" >New advertisement</h1>
     <hr>
     <div class="container" style="max-width: 1000px">
     <form method="POST" action="{{ route('save_auction') }}" enctype="multipart/form-data">

@@ -52,9 +52,13 @@
                         {{ Auth::user()->name }}
                       </button>
                       <ul class="dropdown-menu bg-dark hover-dark">
-                        <li><a class="dropdown-item" id="link" href="{{ route('new_auction') }}">{{ __('New auction') }}</a></li>
-                        <li><a class="dropdown-item" id="link" href="{{ route('my_adverts') }}">{{ __('My auctions') }}</a></li>
-                        <li><a class="dropdown-item" id="link" href="#">Something else here</a></li>
+                        <li><a class="dropdown-item" id="link" href="{{ route('new_auction') }}">{{ __('New advertisement') }}</a></li>
+                        <li><a class="dropdown-item" id="link" href="{{ route('my_adverts') }}">{{ __('My advertisements') }}</a></li>
+                          @auth
+                              @if(Auth::user()->type == 'admin')
+                                  <li><a class="dropdown-item" id="link" href="{{ route('users_list') }}">Admin panel</a></li>
+                              @endif
+                          @endauth
                         <li><hr class="dropdown-divider text-white"></li>
                         <li><a class="dropdown-item" id="link" href="{{ route('logout') }}">{{ __('Log out') }}</a></li>
                       </ul>

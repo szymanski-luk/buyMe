@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AdvertController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\LogoutController;
@@ -42,3 +43,8 @@ Route::get('/auctions/{id}', [AdvertController::class, 'details'])->name('advert
 Route::get('/auctions/', [AdvertController::class, 'search'])->name('searching');
 Route::post('/auctions/edit', [AdvertController::class, 'edit'])->name('edit_auction');
 Route::post('/auctions/delete', [AdvertController::class, 'delete'])->name('delete_auction');
+
+// ADMIN PANEL
+Route::get('/panel/usersList', [AdminController::class, 'usersList'])->name('users_list');
+Route::post('/panel/usersList/give', [AdminController::class, 'giveAdminRights'])->name('give_admin_rights');
+Route::post('/panel/usersList/revoke', [AdminController::class, 'revokeAdminRights'])->name('revoke_admin_rights');
