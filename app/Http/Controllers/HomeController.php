@@ -25,7 +25,10 @@ class HomeController extends Controller
      */
     public function index(Request $request)
     {
-        $auctions = Advert::all();
+        $auctions = Advert::query()
+            ->orderByDesc('id')
+            ->limit(10)
+            ->get();
         return view('index.index', ['auctions' => $auctions]);
     }
 }
