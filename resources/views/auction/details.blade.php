@@ -139,11 +139,13 @@
                             </div>
                             <div class="col-8">
                                 <h4 id="h1-red" style="margin-top: 20px">{{ $auction->user->name }}</h4>
-                                <p class="card-text"><small class="text-muted">Account created on {{ substr($auction->user->created_at, 0, 10) }}</small></p>
-                                <img id="phone-call" style="margin-top: -5px" src="{{ asset('images/' . 'phone-call.png') }}" alt="phone"/>
-                                <h5 id="h5-tel" style="margin-top: -5px">
-                                    {{ substr($auction->user->phone, 0, 3) }} {{ substr($auction->user->phone, 3, 3) }} {{ substr($auction->user->phone, 6, 3) }}
-                                </h5>
+                                <p class="card-text" style="margin-top: -10px"><small class="text-muted">Account created on {{ substr($auction->user->created_at, 0, 10) }}</small></p>
+                                <div style="margin-top: 25px">
+                                    <img id="phone-call" style="margin-top: -5px" src="{{ asset('images/' . 'phone-call.png') }}" alt="phone"/>
+                                    <h5 id="h5-tel">
+                                        {{ substr($auction->user->phone, 0, 3) }} {{ substr($auction->user->phone, 3, 3) }} {{ substr($auction->user->phone, 6, 3) }}
+                                    </h5>
+                                </div>
                             </div>
                         </div>
                         <div class="row">
