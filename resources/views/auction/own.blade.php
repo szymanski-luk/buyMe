@@ -34,6 +34,9 @@
             </a>
         </div>
         @endforeach
+        <div class="d-flex justify-content-center">
+            {!! $auctions->links() !!}
+        </div>
     @else
         <div class="row">
 

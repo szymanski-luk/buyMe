@@ -5,7 +5,7 @@
 @section('content')
     <div class="container-fluid text-light p-5" id="m_jumbotron" style="background-image: url('{{ asset('images/' . 'bcground5.jpg') }}')">
         <div class="container p-5">
-            <h1 id="h1-red-shadow">Find something you want</h1>
+            <h1 id="h1-red-shadow">BuyME!</h1>
             <br>
             <form method="GET" action="{{ route('searching') }}">
                 <div class="input-group input-group-lg">

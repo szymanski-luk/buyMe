@@ -138,7 +138,7 @@
                                 <img src="{{ asset('images/' . 'man.png') }}" style="max-width: 100px; margin-left: 20px; margin-top: 20px; margin-bottom: 20px" class="card-img-top" alt="...">
                             </div>
                             <div class="col-8">
-                                <h4 id="h1-red" style="margin-top: 20px">{{ $auction->user->name }}</h4>
+                                <a href="{{ route('user', ['id' => $auction->user->id]) }}" style="text-decoration-line: none"><h4 id="h1-red" style="margin-top: 20px">{{ $auction->user->name }}</h4></a>
                                 <p class="card-text" style="margin-top: -10px"><small class="text-muted">Account created on {{ substr($auction->user->created_at, 0, 10) }}</small></p>
                                 <div style="margin-top: 25px">
                                     <img id="phone-call" style="margin-top: -5px" src="{{ asset('images/' . 'phone-call.png') }}" alt="phone"/>
@@ -159,7 +159,9 @@
                             </div>
                             <div class="col-6" style="padding-left: 20px">
                                 <p class="card-text" ><small class="text-muted">Category</small></p>
-                                <h5 id="h5-price">{{ $auction->category->name }}</h5>
+                                <a href="{{ route('categories_details', ['id' => $auction->category->id]) }}" style="text-decoration-line: none">
+                                    <h5 id="h5-price">{{ $auction->category->name }}</h5>
+                                </a>
                             </div>
                             <div class="col-6 border-start" style="padding-left: 20px">
 

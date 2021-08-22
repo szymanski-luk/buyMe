@@ -4,6 +4,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AdvertController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\LogoutController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -48,3 +49,6 @@ Route::post('/auctions/delete', [AdvertController::class, 'delete'])->name('dele
 Route::get('/panel/usersList', [AdminController::class, 'usersList'])->name('users_list');
 Route::post('/panel/usersList/give', [AdminController::class, 'giveAdminRights'])->name('give_admin_rights');
 Route::post('/panel/usersList/revoke', [AdminController::class, 'revokeAdminRights'])->name('revoke_admin_rights');
+
+// USER
+Route::get('/user/{id}', [UserController::class, 'details'])->name('user');

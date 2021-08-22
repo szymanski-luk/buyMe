@@ -10,6 +10,7 @@
             </button>
         @endif
     @endauth
+    <div class="row">
     @foreach($categories as $category)
         @auth
             @if(Auth::user()->type == 'admin')
@@ -52,34 +53,39 @@
             @endif
         @endauth
 
-    <div class="container-fluid" id="categoryList">
-        <a href="{{ route('categories_details', ['id' => $category->id]) }}" style="text-decoration-line: none;" >
-        <div class="card mb-3" id="card-category" style="max-width: 1000px; margin-left: auto; margin-right: auto">
-            <div class="row g-0">
-                <div class="col-md-4">
-                    <img src="{{ asset('images/' . $category->img) }}" style="max-width: 240px; max-height: 240px; padding-left: 20px" class="img-fluid rounded-start" alt="{{ $category->name }}">
-                </div>
-                <div class="col-md-8">
-                    <div class="card-body" name="searchDiv">
-                        <h2 class="card-title" >{{ $category->name }}</h2>
-                        <p class="card-text"><small class="text-muted">Click the card to show items in this category</small></p>
+        <div class="col-lg-6 col-md-12 col-sm-12">
+            <div class="container-fluid" id="categoryList">
+                <a href="{{ route('categories_details', ['id' => $category->id]) }}" style="text-decoration-line: none;" >
+                    <div class="card mb-3" id="card-category" style="max-width: 1000px; margin-left: auto; margin-right: auto">
+                        <div class="row g-0">
+                            <div class="col-md-4">
+                                <img src="{{ asset('images/' . $category->img) }}" style="max-width: 200px; max-height: 200px; padding-left: 20px" class="img-fluid rounded-start" alt="{{ $category->name }}">
+                            </div>
+                            <div class="col-md-8">
+                                <div class="card-body" name="searchDiv">
+                                    <h2 class="card-title" >{{ $category->name }}</h2>
+                                    <p class="card-text"><small class="text-muted">Click the card to show items in this category</small></p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                </div>
+                </a>
+                @auth
+                    @if(Auth::user()->type == 'admin')
+                        <div style="text-align: center; margin-bottom: 60px;">
+                            <button  type="button" class="btn btn-outline-warning" data-bs-toggle="modal" data-bs-target="#editModal">
+                                ^^ Edit category ^^
+                            </button>
+                        </div>
+
+                    @endif
+                @endauth
             </div>
         </div>
-        </a>
-        @auth
-            @if(Auth::user()->type == 'admin')
-                <div style="text-align: center; margin-bottom: 60px;">
-                    <button  type="button" class="btn btn-outline-warning" data-bs-toggle="modal" data-bs-target="#editModal">
-                        ^^ Edit category ^^
-                    </button>
-                </div>
 
-            @endif
-        @endauth
-    </div>
+
     @endforeach
+    </div>
     @auth
         @if(Auth::user()->type == 'admin')
             <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#newModal">

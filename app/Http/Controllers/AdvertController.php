@@ -77,7 +77,9 @@ class AdvertController extends Controller
 
     public function myAdverts()
     {
-        $auctions = Advert::all()->where('user_id', '=', Auth::user()->id);
+        $auctions = Advert::query()
+            ->where('user_id', '=', Auth::user()->id)
+            ->paginate(10);
 
         return view('auction.own', ['auctions'=>$auctions]);
     }
@@ -96,7 +98,7 @@ class AdvertController extends Controller
         $auctions = Advert::query()
             ->where('title', 'LIKE', "%{$searchTerm}%")
             ->orWhere('content', 'LIKE', "%{$searchTerm}%")
-            ->get();
+            ->paginate(15);
 
         return view('auction.searching', ['auctions' => $auctions, 'searchTerm' => $searchTerm]);
     }

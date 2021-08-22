@@ -19,7 +19,10 @@ class CategoryController extends Controller
 
     public function details($id)
     {
-        $auctions = Advert::all()->where('category_id', '=', $id);
+        $auctions = Advert::query()
+            ->where('category_id', '=', $id)
+            ->paginate(16);
+
         $category = Category::where('id', '=', $id)->first();
 
         return view('category.details', ['auctions' => $auctions, 'category' => $category]);

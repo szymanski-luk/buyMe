@@ -36,9 +36,6 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('categories_list') }}">{{ __('Categories') }}</a>
                     </li>
-
-
-
                 </ul>
 
                 <span class="navbar-text">
